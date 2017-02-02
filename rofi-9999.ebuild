@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/DaveDavenport/rofi.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="windowmode"
+IUSE="windowmode timings"
 
 RDEPEND="
 	dev-libs/glib:2
@@ -44,7 +44,8 @@ src_prepare() {
 src_configure() {
 	tc-export CC
 	econf \
-		$(use_enable windowmode)
+		$(use_enable windowmode) \
+		$(use_enable timings)
 }
 
 src_test() {
